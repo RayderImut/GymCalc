@@ -1,5 +1,4 @@
 function validation(data) {
-
   if (
     !data.age ||
     !data.height ||
@@ -7,12 +6,10 @@ function validation(data) {
     !data.neck ||
     !data.waist
   ) {
-
     return {
       success: false,
-      message: 'Please fill all fields.'
+      messageKey: 'validationRequired'
     };
-
   }
 
   if (
@@ -22,28 +19,23 @@ function validation(data) {
     data.neck <= 0 ||
     data.waist <= 0
   ) {
-
     return {
       success: false,
-      message: 'Input cannot be negative.'
+      messageKey: 'validationPositive'
     };
-
   }
 
   if (
     data.height > 300 ||
     data.weight > 500
   ) {
-
     return {
       success: false,
-      message: 'Input is unrealistic.'
+      messageKey: 'validationRealistic'
     };
-
   }
 
   return {
     success: true
   };
-
 }
